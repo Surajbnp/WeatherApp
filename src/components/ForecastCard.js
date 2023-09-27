@@ -13,7 +13,6 @@ const ForecastCard = ({ date, astro, day }) => {
     "Saturday",
   ];
   const dayNum = daysOfWeek[Number(current.getDay())];
-  console.log(day)
   return (
     <div className={styles.card}>
       <div>{dayNum}</div>

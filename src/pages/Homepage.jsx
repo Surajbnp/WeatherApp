@@ -13,12 +13,12 @@ const Homepage = () => {
   const [forecast, setForecast] = useState("");
   const [tempToggle, setTempToggle] = useState(false);
   const [searchTerm, setSearch] = useState("");
+  const [isErr, setErr] = useState(false)
 
   const fetchWeather = (query) => {
-    console.log(query);
     axios
       .get(
-        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=7`,
+        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query},IN&days=7`,
         {
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -29,7 +29,9 @@ const Homepage = () => {
       .then((res) => {
         setData(res.data);
         setForecast(res.data.forecast.forecastday);
-      });
+      }).catch((err) => {
+        console.log(err)
+      })
   };
 
   const handleMode = () => {
