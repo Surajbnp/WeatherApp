@@ -16,6 +16,7 @@ html body {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  color: #145da0;
 }
 
 .heading {
@@ -64,8 +65,8 @@ html body {
 }
 
 .main {
-  height: 82vh;
   display: flex;
+  height: 82vh;
   padding: 20px;
   gap: 20px;
   justify-content: center;
@@ -90,7 +91,12 @@ html body {
 
 .rightCont {
   width: 30%;
-  background-color: #d4f1f4;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 11, 93, 1) 0%,
+    rgba(14, 131, 154, 1) 100%
+  );
+  color: white;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   box-sizing: border-box;
@@ -108,10 +114,11 @@ html body {
   padding: 30px;
   box-sizing: border-box;
   text-align: start;
-  border: 2px solid rgb(194, 193, 193);
+  border: 4px solid rgba(16, 16, 171, 1);
+  color: #1010ab;
 }
 
-.loadingDiv{
+.loadingDiv {
   width: 100%;
   height: 90vh;
   display: flex;
@@ -136,7 +143,13 @@ html body {
 .details {
   width: 100%;
   display: grid;
-  background-color: #d4f1f4;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 11, 93, 1) 0%,
+    rgba(16, 16, 171, 1) 59%,
+    rgba(47, 190, 219, 1) 100%
+  );
+  color: white;
   grid-template-columns: repeat(2, 1fr);
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -158,22 +171,12 @@ html body {
 
 /* Dark mode styles */
 .dark {
-  background-color: black;
-  color: white;
-}
-
-.dark .container {
   background-color: #1a1a1a;
-}
-
-.dark .rightCont {
-  background-color: #202b3b;
   color: white;
 }
 
-.dark .details {
-  background-color: #202b3b;
-  color: white;
+body.dark-mode {
+  background-color: var(--bg-dark);
 }
 
 .dark .forecastDiv {
@@ -181,20 +184,20 @@ html body {
 }
 
 .dark .navbar {
-  background-color: #202b3b;
+  color: white;
 }
 
-.dark .tempTxt {
+.dark .info {
   color: white;
 }
 
 .dark .navbar button {
-  background-color: #1a1a1a;
+  background-color: #5c5b5b;
   color: white;
 }
 
 .dark .searchbar input {
-  background-color: #1a1a1a;
+  background-color: #5c5b5b;
   color: white;
 }
 
@@ -205,8 +208,7 @@ html body {
 
 /* Media query for mobile screens */
 @media (max-width: 768px) {
-
-  .container{
+  .container {
     width: 100%;
   }
 
@@ -241,14 +243,14 @@ html body {
     gap: 20px;
   }
 
-  .details > div{
+  .details > div {
     font-size: 12px;
   }
-  .forecastDiv{
+  .forecastDiv {
     font-size: 12px;
   }
 
-  .loadingDiv{
+  .loadingDiv {
     height: 60vh;
   }
 }
