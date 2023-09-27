@@ -95,6 +95,8 @@ html body {
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   box-sizing: border-box;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .info {
@@ -107,6 +109,14 @@ html body {
   box-sizing: border-box;
   text-align: start;
   border: 2px solid rgb(194, 193, 193);
+}
+
+.loadingDiv{
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon {
@@ -137,15 +147,13 @@ html body {
   align-items: center;
   justify-content: center;
   gap: 20px;
-  font-size: 16px;
+  font-size: 20px;
   box-sizing: border-box;
 }
 
 .forecastDiv {
-  border-bottom: 1px solid rgb(195, 194, 194);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-grow: 1;
+  border-bottom: 1px solid rgb(183, 182, 182);
 }
 
 /* Dark mode styles */
@@ -231,5 +239,12 @@ html body {
 
   .leftCont {
     gap: 20px;
+  }
+
+  .details > div{
+    font-size: 12px;
+  }
+  .forecastDiv{
+    font-size: 12px;
   }
 }

@@ -18,7 +18,13 @@ const Homepage = () => {
     console.log(query);
     axios
       .get(
-        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=7`
+        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=7`,
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+          },
+        }
       )
       .then((res) => {
         setData(res.data);
@@ -164,7 +170,9 @@ const Homepage = () => {
           </div>
         </div>
       ) : (
-        "No Data"
+        <div className={styles.loadingDiv}>
+          <img width={'50px'} height={'50px'} src="https://cdn.pixabay.com/animation/2023/05/02/04/29/04-29-06-428_512.gif" alt="loader" />
+        </div>
       )}
     </div>
   );

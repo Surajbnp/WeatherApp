@@ -1,8 +1,7 @@
 .card{
     width: 100%;
-    height:fit-content;
     display: flex;
+    flex-grow: 1;
     align-items: center;
     justify-content: space-around;
-    padding: 7px;
 }
