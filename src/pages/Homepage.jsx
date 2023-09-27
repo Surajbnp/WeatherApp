@@ -18,7 +18,7 @@ const Homepage = () => {
     console.log(query);
     axios
       .get(
-        `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=7`
+        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=7`
       )
       .then((res) => {
         setData(res.data);
