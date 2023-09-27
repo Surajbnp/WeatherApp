@@ -13,12 +13,15 @@ const Homepage = () => {
   const [forecast, setForecast] = useState("");
   const [tempToggle, setTempToggle] = useState(false);
   const [searchTerm, setSearch] = useState("");
-  const [isErr, setErr] = useState(false)
+  const [isErr, setErr] = useState('');
+  const [loader, setLoader] = useState(false)
 
   const fetchWeather = (query) => {
+    setLoader(true)
+    setData('')
     axios
       .get(
-        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query},IN&days=7`,
+        `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${query}&days=7`,
         {
           headers: {
             "Access-Control-Allow-Origin": "*",
@@ -28,10 +31,15 @@ const Homepage = () => {
       )
       .then((res) => {
         setData(res.data);
+        setErr(false);
+        setLoader(false)
         setForecast(res.data.forecast.forecastday);
-      }).catch((err) => {
-        console.log(err)
       })
+      .catch((err) => {
+        console.log(err);
+        setErr(err.response.data.error.message);
+        setLoader(false)
+      });
   };
 
   const handleMode = () => {
@@ -98,7 +106,7 @@ const Homepage = () => {
         </div>
       </div>
 
-      {wetherData ? (
+      {wetherData && !loader && !isErr ? (
         <div className={styles.main}>
           <div className={styles.leftCont}>
             <div className={styles.info}>
@@ -173,7 +181,7 @@ const Homepage = () => {
         </div>
       ) : (
         <div className={styles.loadingDiv}>
-          <img width={'50px'} height={'50px'} src="https://cdn.pixabay.com/animation/2023/05/02/04/29/04-29-06-428_512.gif" alt="loader" />
+          {loader && !isErr ? <h3>{"Loading..."}</h3> : <h3>{isErr}</h3>}
         </div>
       )}
     </div>

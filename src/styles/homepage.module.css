@@ -247,4 +247,8 @@ html body {
   .forecastDiv{
     font-size: 12px;
   }
+
+  .loadingDiv{
+    height: 60vh;
+  }
 }
